@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Bestie ❤️</title>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+height:100vh;
+font-family:Segoe UI,sans-serif;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+overflow:hidden;
+}
+
+.page{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+}
+
+.page.active{
+display:flex;
+}
+
+.card{
+background:#fff;
+padding:25px;
+border-radius:20px;
+width:90%;
+max-width:380px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+h2{color:#333}
+p{margin:12px 0;color:#444}
+
+.btn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:25px;
+background:#ff3366;
+color:white;
+font-size:15px;
+cursor:pointer;
+margin-top:15px;
+}
+
+/* Quiz */
+.option{
+background:#ffe1ec;
+padding:12px;
+border-radius:18px;
+margin-top:10px;
+cursor:pointer;
+}
+
+/* Image */
+.photo{
+width:70%;
+max-width: 220px;
+border-radius:15px;
+margin:10px auto;
+display: block;
+}
+
+/* Hearts */
+.heart{
+position:fixed;
+top:-20px;
+font-size:20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+<source src="am._.prabhat-20260203-0001.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+<div class="card">
+
+<h2>My Bestie 💖</h2>
+
+<p>
+Tu sirf saath nahi, meri aadat ban chuki hai,<br>
+Teri baaton mein meri har khamoshi sun chuki hai,<br>
+Log pyaar dhoondhte hain duniya bhar mein,<br>
+Mujhe toh bestie mein hi sukoon mil chuki hai ✨
+</p>
+
+<button class="btn" onclick="go('p2')">Next ❤️</button>
+
+</div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+<div class="card">
+
+<h2>Quiz For You 😘</h2>
+<p>Who is the boss? 😏</p>
+
+<div class="option" onclick="right()">Obviously You 💕</div>
+<div class="option" onclick="wrong()">Me 😜</div>
+<div class="option" onclick="wrong()">My Mom 😂</div>
+
+<button class="btn" onclick="go('p3')">Next 💗</button>
+
+</div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="p3">
+<div class="card">
+
+<h2>My Favourite 💞</h2>
+
+<!-- apni image ka naam yaha -->
+<img src="1000239674.jpg" class="photo">
+
+<p>
+Tum meri life ka sabse cute part ho ❤️<br>
+Always smile like this 😊
+</p>
+
+<button class="btn" onclick="go('p4')">Next 💝</button>
+
+</div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="p4">
+<div class="card">
+
+<h2>Will you stay with me? 🥺</h2>
+<p>You mean everything 💗</p>
+
+<button class="btn" onclick="go('p5')">YES 💖</button>
+
+<button class="btn" style="background:#5a8dee" onclick="no()">NO 😜</button>
+
+</div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="p5">
+<div class="card">
+
+<h2>Something For You 🎁</h2>
+
+<p>You're my favourite person forever 🫶</p>
+
+<button class="btn" onclick="go('p6')">Open 💌</button>
+
+</div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page" id="p6">
+<div class="card">
+
+<h2>A Letter 💖</h2>
+
+<p>
+My Bestie,<br><br>
+Thank you for being my happiness 💕<br>
+You are my forever 💞
+</p>
+
+<button class="btn" onclick="go('p7')">Finally ❤️</button>
+
+</div>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page" id="p7">
+<div class="card">
+
+<h2>I Love You Bestie ❤️</h2>
+<p>Always & Forever 🫶</p>
+
+</div>
+</div>
+
+<script>
+
+function go(id){
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active");
+});
+document.getElementById(id).classList.add("active");
+}
+
+function wrong(){
+alert("no baby 😜 Try again!");
+}
+
+function right(){
+alert("Correct 💖 You are the boss!");
+}
+
+function no(){
+alert("NO ka option kaam hi nahi karta 😌");
+}
+
+/* Falling Hearts */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),5000);
+
+},250);
+
+/* Music */
+document.body.addEventListener("click",()=>{
+document.getElementById("music").play();
+},{once:true});
+
+</script>
+
+</body>
+</html>
